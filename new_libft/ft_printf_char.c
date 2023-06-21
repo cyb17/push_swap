@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_printf_char.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yachen <yachen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 11:46:00 by yachen            #+#    #+#             */
-/*   Updated: 2023/06/21 15:32:38 by yachen           ###   ########.fr       */
+/*   Created: 2023/05/23 10:19:44 by yachen            #+#    #+#             */
+/*   Updated: 2023/05/23 10:19:53 by yachen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "ft_printf.h"
 
-#include <limits.h>
-#include <stdio.h>
-#include "./new_libft/libft.h"
-#include "./new_libft/ft_printf.h"
-
-int		ft_parsing(int argc, char **argv);
-int		ft_strcmp(char *s1, char *s2);
-void	ft_make_stack(t_list **list, int argc, char **argv);
-
-#endif
+int	ft_printf_char(char c)
+{
+	return (write(1, &c, 1));
+}

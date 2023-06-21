@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_printf_nbr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yachen <yachen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 11:46:00 by yachen            #+#    #+#             */
-/*   Updated: 2023/06/21 15:32:38 by yachen           ###   ########.fr       */
+/*   Created: 2023/05/23 10:20:09 by yachen            #+#    #+#             */
+/*   Updated: 2023/05/25 13:56:29 by yachen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "ft_printf.h"
 
-#include <limits.h>
-#include <stdio.h>
-#include "./new_libft/libft.h"
-#include "./new_libft/ft_printf.h"
+int	ft_printf_nbr(int nb)
+{
+	int			sign;
+	long		nbr;
+	static int	len;
 
-int		ft_parsing(int argc, char **argv);
-int		ft_strcmp(char *s1, char *s2);
-void	ft_make_stack(t_list **list, int argc, char **argv);
-
-#endif
+	sign = 0;
+	nbr = nb;
+	len = 0;
+	if (nbr < 0)
+	{
+		ft_printf_char('-');
+		nbr *= -1;
+		sign = 1;
+	}
+	if (nbr > 9)
+		ft_printf_nbr(nbr / 10);
+	len += ft_printf_char(nbr % 10 + 48);
+	return (len + sign);
+}
