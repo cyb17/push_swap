@@ -12,53 +12,23 @@
 
 #include "push_swap.h"
 
-int	ft_parsing(int argc, char **argv)
-{
-	int		i;
-	int		j;
-	long	nbr;
-
-	i = 1;
-	while (i < argc)
-	{
-		j = 0;
-		while (argv[i][j])
-		{
-			if (ft_isdigit(argv[i][j]) == 0)
-				return (0);
-			j++;
-		}
-		nbr = ft_atoi(argv[i] + 0);
-		if (nbr > INT_MAX || nbr < INT_MIN)
-			return (0);
-		i++;
-	}
-	while (--i > 1)
-		if (ft_strcmp(argv[i], argv[i - 1]) == 0)
-			return (0);
-	return (1);
-}
-
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
-	int		value;
 
-	if (argc == 1)
-		return (0);
-	else if (argc == 2)
-		ft_printf("Insufficient number!");
-	else if (ft_parsing(argc, argv) == 0)
-		write(2, "Error\n", 6);
-	else
+	parsing(argc, argv);
+	stack_a = make_stack(argc, argv);
+	t_list	*tmp = stack_a;
+	while (tmp)
 	{
-		stack_a = ft_make_stack(argc, argv);
-		while (stack_a)
-		{
-			value = *((int *)(stack_a->content));
-			ft_printf("%d", value);
-			stack_a = stack_a->next;
-		}
+		printf("%p\n", tmp);
+		printf("%p\n", (char *)tmp->content);
+		printf("%s\n", (char *)tmp->content);
+		tmp = tmp->next;
 	}
+	ft_lstclear(&stack_a, delete_content);
+	printf("%p\n", stack_a);
+	
+
 	return (0);
 }

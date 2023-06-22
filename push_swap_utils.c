@@ -24,22 +24,22 @@ int ft_strcmp(char *s1, char *s2)
 	return (0);
 }
 
-t_list	*ft_make_stack(int argc, char **argv)
+t_list	*make_stack(int argc, char **argv)
 {
-	t_list	*stack;
+	t_list	*list;
 	t_list	*new;
-	int		nbr;
 
-	nbr = 0;
-	stack = NULL;
+	list = ft_lstnew(argv[--argc]);
 	new = NULL;
-	while (--argc > 1)
+	while (--argc > 0)
 	{
-		nbr = ft_atoi(argv[argc]);
-		new = ft_lstnew(&nbr);
-		printf("%d\n", *((int *)(new->content)));
-		ft_lstadd_front(&stack, new);
-		printf("%d\n", *((int *)(stack->next->content)));
+		new = ft_lstnew(argv[argc]);
+		ft_lstadd_front(&list, new);
 	}
-	return (stack);
+	return (list);
+}
+
+void	delete_content(void *content)
+{
+	free(content);	
 }

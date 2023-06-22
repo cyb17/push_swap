@@ -18,8 +18,13 @@
 #include "./new_libft/libft.h"
 #include "./new_libft/ft_printf.h"
 
-int		ft_parsing(int argc, char **argv);
+void	parsing(int argc, char **argv);
 int		ft_strcmp(char *s1, char *s2);
-void	ft_make_stack(t_list **list, int argc, char **argv);
+t_list	*make_stack(int argc, char **argv);
+void	delete_content(void *content);
+void	ft_swap(t_list **list);
+void	ft_push(t_list *element, t_list *list);
+void	ft_rotate(t_list *list);
+void	ft_reverse_rotate(t_list *list);
 
 #endif
