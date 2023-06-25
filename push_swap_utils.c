@@ -39,7 +39,14 @@ t_list	*make_stack(int argc, char **argv)
 	return (list);
 }
 
-void	delete_content(void *content)
+void	free_stack(t_list **list)
 {
-	free(content);	
+	t_list	*tmp;
+
+	while (*list)
+	{
+		tmp = (*list)->next;
+		free(*list);
+		*list = tmp;
+	}
 }

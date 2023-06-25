@@ -15,20 +15,25 @@
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
+	t_list	*stack_b;
 
 	parsing(argc, argv);
 	stack_a = make_stack(argc, argv);
-	t_list	*tmp = stack_a;
-	while (tmp)
+	if (already_sort(stack_a) == 1)
 	{
-		printf("%p\n", tmp);
-		printf("%p\n", (char *)tmp->content);
-		printf("%s\n", (char *)tmp->content);
-		tmp = tmp->next;
+		stack_b = ft_lstnew(NULL);
+		free_stack(&stack_a);
+		free_stack(&stack_b);
+		exit(0);
 	}
-	ft_lstclear(&stack_a, delete_content);
-	printf("%p\n", stack_a);
-	
-
+	stack_b = NULL;
+	if (argc <= 6)
+		simply_sort(argc, &stack_a, &stack_b);
+	t_list	*test = stack_a;
+	while (test)
+	{
+		printf("%s ", (char *)test->content);
+		test = test->next;
+	}
 	return (0);
 }

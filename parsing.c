@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yachen <yachen@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bing <bing@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/22 11:42:08 by yachen              #+#    #+#             */
-/*   Updated: 2023/06/22 11:42:11 by yachen             ###   ########.fr       */
+/*   Created: 2023/06/22 11:42:08 by yachen            #+#    #+#             */
+/*   Updated: 2023/06/23 13:42:58 by bing             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static int	check_argv(int argc, char **argv)
 	while (i < argc)
 	{
 		j = 0;
+		if (argv[i][j] == '-')
+			j++;
 		while (argv[i][j])
 		{
 			if (ft_isdigit(argv[i][j]) == 0)
