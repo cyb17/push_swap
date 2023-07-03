@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yachen <yachen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bing <bing@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 11:46:00 by yachen            #+#    #+#             */
-/*   Updated: 2023/06/21 15:32:38 by yachen           ###   ########.fr       */
+/*   Updated: 2023/07/03 16:27:43 by bing             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 void	parsing(int argc, char **argv);
 int		ft_strcmp(char *s1, char *s2);
 t_list	*make_stack(int argc, char **argv);
+int		already_sorted(t_list *stack_a);
 void	free_stack(t_list **list);
 void	ft_swap(t_list **list);
 void	ft_push(t_list **element, t_list **list);
@@ -37,7 +38,13 @@ void	rr(t_list **stack_a, t_list **stack_b);
 void	rra(t_list **stack_a);
 void	rrb(t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);
-int		already_sort(t_list *stack_a);
-void	simply_sort(int argc, t_list **stack_a, t_list **stack_b);
-
+void	sort_3(t_list **stack_a);
+int		find_max(t_list **stack);
+int		find_min(t_list **stack);
+int		find_index(long nbr, t_list **stack);
+int		find_position_b(t_list **element, t_list **stack);
+int		find_position_a(t_list **element, t_list **stack);
+void	sort_to_b(t_list **a, t_list **b);
+void	sort_to_a(t_list **a, t_list **b);
+void	sort(t_list **stack_a);
 #endif

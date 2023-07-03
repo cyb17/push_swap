@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yachen <yachen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bing <bing@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 10:49:06 by yachen            #+#    #+#             */
-/*   Updated: 2023/06/21 14:46:29 by yachen           ###   ########.fr       */
+/*   Updated: 2023/07/03 16:46:30 by bing             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,25 @@
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
-	t_list	*stack_b;
 
 	parsing(argc, argv);
 	stack_a = make_stack(argc, argv);
-	if (already_sort(stack_a) == 1)
+	if (already_sorted(stack_a) == 1)
 	{
-		stack_b = ft_lstnew(NULL);
+		ft_printf("The stack is already sorted :)");
 		free_stack(&stack_a);
-		free_stack(&stack_b);
 		exit(0);
 	}
-	stack_b = NULL;
-	if (argc <= 6)
-		simply_sort(argc, &stack_a, &stack_b);
+	if (argc == 3)
+		sa(&stack_a);
+	else
+		sort(&stack_a);
 	t_list	*test = stack_a;
 	while (test)
 	{
-		printf("%s ", (char *)test->content);
+		ft_printf("%s ", (char *)(test->content));
 		test = test->next;
 	}
+	free_stack(&stack_a);
 	return (0);
 }

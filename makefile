@@ -3,16 +3,14 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yachen <yachen@student.42.fr>              +#+  +:+       +#+         #
+#    By: bing <bing@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/20 10:01:12 by yachen            #+#    #+#              #
-#    Updated: 2023/06/21 14:34:13 by yachen           ###   ########.fr        #
+#    Updated: 2023/07/03 15:14:09 by bing             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a
-
-LIBFTNAME = libft.a
+NAME = push_swap
 
 LIBFTDIR = ./new_libft
 
@@ -22,19 +20,16 @@ CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
-SRC = push_swap.c push_swap_utils.c parsing.c instruction.c sort.c
+SRC =	push_swap.c push_swap_utils.c parsing.c instruction.c sort_to_b.c \
+		sort_to_a.c search_outils.c\
 
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-makelibft: 
-	@make -C $(LIBFTDIR)
-	@cp $(LIBFTDIR)/$(LIBFTNAME) .
-	@mv $(LIBFTNAME) $(NAME)
-
-$(NAME): makelibft $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+$(NAME): $(OBJ)
+	@make -C ./new_libft
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFTDIR)/libft.a -o $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

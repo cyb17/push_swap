@@ -6,12 +6,13 @@
 /*   By: bing <bing@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 11:42:08 by yachen            #+#    #+#             */
-/*   Updated: 2023/06/23 13:42:58 by bing             ###   ########.fr       */
+/*   Updated: 2023/06/30 19:25:32 by bing             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// verifie si les parametres passes sont des int
 static int	check_argv(int argc, char **argv)
 {
 	int		i;
@@ -35,9 +36,27 @@ static int	check_argv(int argc, char **argv)
 			return (0);
 		i++;
 	}
-	while (--i > 1)
-		if (ft_strcmp(argv[i], argv[i - 1]) == 0)
-			return (0);
+	return (1);
+}
+
+// verifie s'il n'y a pas de doublon
+static int	check_double(int argc, char **argv)
+{
+	int i;
+	int j;
+
+	i = 1;
+	while (i < argc - 1)
+	{
+		j = i + 1;
+		while (j < argc)
+		{
+			if (ft_strcmp(argv[i], argv[j]) == 0)
+				return (0);
+			j++;
+		}
+		i++;
+	}
 	return (1);
 }
 
@@ -50,7 +69,7 @@ void	parsing(int argc, char **argv)
 		ft_printf("Insufficient number !\n");
 		exit(0);
 	}
-	else if (check_argv(argc, argv) == 0)
+	else if (check_argv(argc, argv) == 0 || check_double(argc, argv) == 0)
 	{
 		ft_printf("Error\n");
 		exit(1);
