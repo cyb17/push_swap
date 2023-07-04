@@ -6,7 +6,7 @@
 /*   By: bing <bing@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 10:52:26 by yachen            #+#    #+#             */
-/*   Updated: 2023/07/03 16:42:10 by bing             ###   ########.fr       */
+/*   Updated: 2023/07/04 22:18:37 by bing             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,6 @@ int ft_strcmp(char *s1, char *s2)
 	return (0);
 }
 
-t_list	*make_stack(int argc, char **argv)
-{
-	t_list	*list;
-	t_list	*new;
-
-	list = ft_lstnew(argv[--argc]);
-	new = NULL;
-	while (--argc > 0)
-	{
-		new = ft_lstnew(argv[argc]);
-		ft_lstadd_front(&list, new);
-	}
-	return (list);
-}
-
 int	already_sorted(t_list *stack_a)
 {
 	t_list	*current;
@@ -48,13 +33,27 @@ int	already_sorted(t_list *stack_a)
 	while (current->next)
 	{
 		tmp = current;
+		printf("%s\n", (char *)tmp->content);
 		current = current->next;
+		printf("%s\n", (char *)current->content);
 		if (ft_atoi(tmp->content) > ft_atoi(current->content))
 			return (0);
 	}
 	return (1);
 }
 
+void	free_tab(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}
 void	free_stack(t_list **list)
 {
 	t_list	*tmp;

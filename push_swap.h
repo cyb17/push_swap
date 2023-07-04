@@ -6,7 +6,7 @@
 /*   By: bing <bing@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 11:46:00 by yachen            #+#    #+#             */
-/*   Updated: 2023/07/03 16:27:43 by bing             ###   ########.fr       */
+/*   Updated: 2023/07/04 17:48:51 by bing             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@
 
 void	parsing(int argc, char **argv);
 int		ft_strcmp(char *s1, char *s2);
+char	**argv_string(char **argv);
 t_list	*make_stack(int argc, char **argv);
 int		already_sorted(t_list *stack_a);
+void	free_tab(char **tab);
 void	free_stack(t_list **list);
 void	ft_swap(t_list **list);
 void	ft_push(t_list **element, t_list **list);
