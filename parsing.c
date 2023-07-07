@@ -3,14 +3,52 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bing <bing@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yachen <yachen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/22 11:42:08 by yachen            #+#    #+#             */
-/*   Updated: 2023/07/04 22:20:11 by bing             ###   ########.fr       */
+/*   Created: 2023/07/06 12:10:45 by yachen            #+#    #+#             */
+/*   Updated: 2023/07/07 10:49:33 by yachen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int stringcmp(char *s1, char *s2)
+{
+	while (*s1 || *s2)
+	{
+		if (*s1 != *s2)
+			return (1);
+		s1++;
+		s2++;
+	}
+	return (0);
+}
+
+
+static long	ft_atoi_long(const char *str)
+{
+	int			i;
+	long		nb;
+	int			sign;
+
+	i = 0;
+	nb = 0;
+	sign = 1;
+	while (str[i] && (str[i] == ' ' || ((str[i] > 8 && str[i] < 14))))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (str[i] <= '9' && str[i] >= '0')
+	{
+		nb = nb * 10 + (str[i] - '0');
+		i++;
+	}
+	return (nb * sign);
+}
 
 // verifie si les parametres passes sont des int
 static int	check_argv(char **argv)
@@ -23,7 +61,7 @@ static int	check_argv(char **argv)
 	while (argv[i])
 	{
 		j = 0;
-		nbr = ft_atoi(argv[i]);
+		nbr = ft_atoi_long(argv[i]);
 		if (nbr == 0)
 		{
 			while (argv[i][j])
@@ -52,7 +90,7 @@ static int	check_double(char **argv)
 		j = i + 1;
 		while (argv[j])
 		{
-			if (ft_strcmp(argv[i], argv[j]) == 0)
+			if (stringcmp(argv[i], argv[j]) == 0)
 				return (0);
 			j++;
 		}
@@ -69,56 +107,19 @@ void	parsing(int argc, char **argv)
 	if (argc == 1)
 		exit(0);
 	if(argc == 2)
-		new_argv = argv_string(argv);
+	{
+		new_argv = ft_split(argv[1], ' ');
+		if (check_argv(new_argv) == 0 || check_double(new_argv) == 0)
+		{
+			free_tab(new_argv);
+			ft_error();
+		}
+		free_tab(new_argv);
+	}
 	else
+	{
 		new_argv = argv + 1;
-	if (check_argv(new_argv) == 0 || check_double(new_argv) == 0)
-	{
-		ft_printf("Error\n");
-		exit(1);
+		if (check_argv(new_argv) == 0 || check_double(new_argv) == 0)
+			ft_error();
 	}
-}
-
-char	**argv_string(char **argv)
-{
-	char 	**tab;
-
-	tab = ft_split(argv[1], ' ');
-	if (!tab)
-	{
-		ft_printf("Error");
-		exit(1);
-	}
-	return (tab);
-}
-
-t_list	*make_stack(int argc, char **argv)
-{
-	t_list	*list;
-	char	**tab;
-	int		i;
-
-	list = NULL;
-	tab = NULL;
-	i = 0;
-	if (argc == 2)
-	{
-		tab = argv_string(argv);
-		while (tab[i])
-		{
-			ft_lstadd_back(&list, ft_lstnew(tab[i]));
-			i++;
-		}
-		free_tab(tab);
-		t_list	*test = list;
-		while (test)
-		{
-			ft_printf("%s ", (char *)(test->content));
-			test = test->next;
-		}
-		return (list);
-	}
-	while (--argc > 0)
-		ft_lstadd_front(&list, ft_lstnew(argv[argc]));
-	return (list);
 }

@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   instruction.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bing <bing@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yachen <yachen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 12:00:46 by yachen            #+#    #+#             */
-/*   Updated: 2023/06/22 12:01:29 by bing             ###   ########.fr       */
+/*   Updated: 2023/07/07 11:49:42 by yachen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap(t_list **list)
+void	ft_swap(t_stack **list)
 {
-	t_list	*tmp1;
-	t_list	*tmp2;
+	t_stack	*tmp1;
+	t_stack	*tmp2;
 	
 	if (!(*list) || !(*list)->next)
 		return ;
@@ -27,33 +27,33 @@ void	ft_swap(t_list **list)
 
 }
 
-void	ft_push(t_list **element, t_list **list)
+void	ft_push(t_stack **element, t_stack **list)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	if (!(*element))
 		return ;
 	tmp = *element;
 	*element = (*element)->next;
-	ft_lstadd_front(list, tmp);
+	lst_addfront(list, tmp);
 }
 
-void	ft_rotate(t_list **list)
+void	ft_rotate(t_stack **list)
 {
-	t_list	*tmp1;
-	t_list	*tmp2;
+	t_stack	*tmp1;
+	t_stack	*tmp2;
 
 	tmp2 = (*list)->next;
-	tmp1 = ft_lstlast(*list);
+	tmp1 = lst_last(*list);
 	tmp1->next = *list;
 	(*list)->next = NULL;
 	*list = tmp2;
 }
 
-void	ft_reverse_rotate(t_list **list)
+void	ft_reverse_rotate(t_stack **list)
 {
-	t_list	*tmp;
-	t_list	*current;
+	t_stack	*tmp;
+	t_stack	*current;
 
 	current = *list;
 	while (current->next)
@@ -66,72 +66,72 @@ void	ft_reverse_rotate(t_list **list)
 	*list = current;
 }
 
-void	sa(t_list **stack_a)
+void	sa(t_stack **stack_a)
 {
 	ft_swap(stack_a);
 	ft_printf("sa\n");
 }
 
-void	sb(t_list **stack_b)
+void	sb(t_stack **stack_b)
 {
 	ft_swap(stack_b);
 	ft_printf("sb\n");
 }
 
-void	ss(t_list **stack_a, t_list **stack_b)
+void	ss(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_swap(stack_a);
 	ft_swap(stack_b);
 	ft_printf("ss\n");
 }
 
-void	pa(t_list **stack_b, t_list **stack_a)
+void	pa(t_stack **stack_b, t_stack **stack_a)
 {
 	ft_push(stack_b, stack_a);
-	printf("pa\n");
+	ft_printf("pa\n");
 }
 
-void	pb(t_list **stack_a, t_list **stack_b)
+void	pb(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_push(stack_a, stack_b);
-	printf("pb\n");
+	ft_printf("pb\n");
 }
 
-void	ra(t_list **stack_a)
+void	ra(t_stack **stack_a)
 {
 	ft_rotate(stack_a);
-	printf("ra\n");
+	ft_printf("ra\n");
 }
 
-void	rb(t_list **stack_b)
+void	rb(t_stack **stack_b)
 {
 	ft_rotate(stack_b);
-	printf("rb\n");
+	ft_printf("rb\n");
 }
 
-void	rr(t_list **stack_a, t_list **stack_b)
+void	rr(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_rotate(stack_a);
 	ft_rotate(stack_b);
-	printf("rr\n");
+	ft_printf("rr\n");
 }
 
-void	rra(t_list **stack_a)
+void	rra(t_stack **stack_a)
 {
 	ft_reverse_rotate(stack_a);
-	printf("rra\n");
+	ft_printf("rra\n");
 }
 
-void	rrb(t_list **stack_b)
+void	rrb(t_stack **stack_b)
 {
 	ft_reverse_rotate(stack_b);
-	printf("rrb\n");
+	ft_printf("rrb\n");
 }
 
-void	rrr(t_list **stack_a, t_list **stack_b)
+void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_reverse_rotate(stack_a);
 	ft_reverse_rotate(stack_b);
-	printf("rrr\n");
+	ft_printf("rrr\n");
 }
 

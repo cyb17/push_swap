@@ -3,44 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bing <bing@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yachen <yachen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 10:52:26 by yachen            #+#    #+#             */
-/*   Updated: 2023/07/04 22:18:37 by bing             ###   ########.fr       */
+/*   Updated: 2023/07/07 11:52:30 by yachen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int ft_strcmp(char *s1, char *s2)
-{
-	while (*s1 || *s2)
-	{
-		if (*s1 != *s2)
-			return (1);
-		s1++;
-		s2++;
-	}
-	return (0);
-}
-
-int	already_sorted(t_list *stack_a)
-{
-	t_list	*current;
-	t_list	*tmp;
-
-	current = stack_a;
-	while (current->next)
-	{
-		tmp = current;
-		printf("%s\n", (char *)tmp->content);
-		current = current->next;
-		printf("%s\n", (char *)current->content);
-		if (ft_atoi(tmp->content) > ft_atoi(current->content))
-			return (0);
-	}
-	return (1);
-}
 
 void	free_tab(char **tab)
 {
@@ -54,54 +24,87 @@ void	free_tab(char **tab)
 	}
 	free(tab);
 }
-void	free_stack(t_list **list)
+void	free_stack(t_stack **stack)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
-	while (*list)
+	while (*stack)
 	{
-		tmp = (*list)->next;
-		free(*list);
-		*list = tmp;
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
 	}
 }
 
-void	sort_3(t_list **stack_a)
+int	already_sorted(t_stack *stack_a)
 {
-	int	nb1;
-	int nb2;
-	int nb3;
+	t_stack	*current;
+	t_stack	*tmp;
 
-	nb1 = ft_atoi((*stack_a)->content);
-	nb2 = ft_atoi((*stack_a)->next->content);
-	nb3 = ft_atoi(ft_lstlast(*stack_a)->content);
-	if (nb1 > nb2 && nb1 < nb3)
-		sa(stack_a);
-	else if (nb1 > nb2 && nb2 > nb3)
+	current = stack_a;
+	tmp = NULL;
+	while (current->next)
 	{
-		sa(stack_a);
-		rra(stack_a);
+		tmp = current;
+		current = current->next;
+		if (tmp->nbr > current->nbr)
+			return (0);
 	}
-	else if (nb1 > nb2 && nb1 > nb3 && nb2 < nb3)
-		ra(stack_a);
-	else if (nb1 < nb2 && nb1 < nb3 && nb2 > nb3)
-	{
-		sa(stack_a);
-		ra(stack_a);
-	}
-	else if (nb1 < nb2 && nb1 > nb3)
-		rra(stack_a);
+	return (1);
 }
 
-void	sort(t_list **stack_a)
+int	lst_size(t_stack *stack)
 {
-	t_list	*stack_b;
+	int	size;
+	t_stack	*tmp;
+
+	size = 0;
+	tmp = stack;
+	if (!tmp)
+		return (size);
+	while (tmp)
+	{
+		size++;
+		tmp = tmp->next;
+	}
+	return (size);
+}
+
+t_stack	*lst_last(t_stack *stack)
+{
+	if (stack == NULL)
+		return (NULL);
+	while (stack -> next != NULL)
+		stack = stack -> next;
+	return (stack);
+}
+
+void	lst_addfront(t_stack **lst, t_stack *new_stack)
+{
+	new_stack -> next = *lst;
+	*lst = new_stack;
+}
+
+void	ft_error(void)
+{
+	ft_printf("Error");
+	exit(1);
+}
+
+void	sort(t_stack **stack_a)
+{
+	t_stack	*stack_b;
 
 	stack_b = NULL;
-	if (ft_lstsize(*stack_a) > 3 && already_sorted(*stack_a) == 0)
-		pb(stack_a, &stack_b);
-	if (ft_lstsize(*stack_a) > 3 && already_sorted(*stack_a) == 0)
-		pb(stack_a, &stack_b);
-	sort_to_b(stack_a, &stack_b);
-	sort_to_a(stack_a, &stack_b);
+	if (lst_size(*stack_a) == 2)
+		sa(stack_a);
+	else
+	{
+		if (lst_size(*stack_a) > 3 && already_sorted(*stack_a) == 0)
+			pb(stack_a, &stack_b);
+		if (lst_size(*stack_a) > 3 && already_sorted(*stack_a) == 0)
+			pb(stack_a, &stack_b);
+		sort_to_b(stack_a, &stack_b);
+		sort_to_a(stack_a, &stack_b);
+	}
 }
