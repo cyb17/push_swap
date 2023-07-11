@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yachen <yachen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bing <bing@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 10:52:26 by yachen            #+#    #+#             */
-/*   Updated: 2023/07/07 11:52:30 by yachen           ###   ########.fr       */
+/*   Updated: 2023/07/11 11:09:03 by bing             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,38 +51,6 @@ int	already_sorted(t_stack *stack_a)
 			return (0);
 	}
 	return (1);
-}
-
-int	lst_size(t_stack *stack)
-{
-	int	size;
-	t_stack	*tmp;
-
-	size = 0;
-	tmp = stack;
-	if (!tmp)
-		return (size);
-	while (tmp)
-	{
-		size++;
-		tmp = tmp->next;
-	}
-	return (size);
-}
-
-t_stack	*lst_last(t_stack *stack)
-{
-	if (stack == NULL)
-		return (NULL);
-	while (stack -> next != NULL)
-		stack = stack -> next;
-	return (stack);
-}
-
-void	lst_addfront(t_stack **lst, t_stack *new_stack)
-{
-	new_stack -> next = *lst;
-	*lst = new_stack;
 }
 
 void	ft_error(void)

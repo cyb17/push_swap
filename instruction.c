@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   instruction.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yachen <yachen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bing <bing@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 12:00:46 by yachen            #+#    #+#             */
-/*   Updated: 2023/07/07 11:49:42 by yachen           ###   ########.fr       */
+/*   Updated: 2023/07/11 11:06:45 by bing             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,68 +64,6 @@ void	ft_reverse_rotate(t_stack **list)
 	tmp->next = NULL;
 	current->next = *list;
 	*list = current;
-}
-
-void	sa(t_stack **stack_a)
-{
-	ft_swap(stack_a);
-	ft_printf("sa\n");
-}
-
-void	sb(t_stack **stack_b)
-{
-	ft_swap(stack_b);
-	ft_printf("sb\n");
-}
-
-void	ss(t_stack **stack_a, t_stack **stack_b)
-{
-	ft_swap(stack_a);
-	ft_swap(stack_b);
-	ft_printf("ss\n");
-}
-
-void	pa(t_stack **stack_b, t_stack **stack_a)
-{
-	ft_push(stack_b, stack_a);
-	ft_printf("pa\n");
-}
-
-void	pb(t_stack **stack_a, t_stack **stack_b)
-{
-	ft_push(stack_a, stack_b);
-	ft_printf("pb\n");
-}
-
-void	ra(t_stack **stack_a)
-{
-	ft_rotate(stack_a);
-	ft_printf("ra\n");
-}
-
-void	rb(t_stack **stack_b)
-{
-	ft_rotate(stack_b);
-	ft_printf("rb\n");
-}
-
-void	rr(t_stack **stack_a, t_stack **stack_b)
-{
-	ft_rotate(stack_a);
-	ft_rotate(stack_b);
-	ft_printf("rr\n");
-}
-
-void	rra(t_stack **stack_a)
-{
-	ft_reverse_rotate(stack_a);
-	ft_printf("rra\n");
-}
-
-void	rrb(t_stack **stack_b)
-{
-	ft_reverse_rotate(stack_b);
-	ft_printf("rrb\n");
 }
 
 void	rrr(t_stack **stack_a, t_stack **stack_b)

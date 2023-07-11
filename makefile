@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yachen <yachen@student.42.fr>              +#+  +:+       +#+         #
+#    By: bing <bing@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/20 10:01:12 by yachen            #+#    #+#              #
-#    Updated: 2023/07/07 12:45:15 by yachen           ###   ########.fr        #
+#    Updated: 2023/07/11 14:03:19 by bing             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,15 +18,17 @@ LIBFTDIR = ./new_libft
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g3
 
 RM = rm -f
 
-SRC =	push_swap.c push_swap_utils.c parsing.c make_stack.c \
-		instruction.c search_outils.c sort_to_a.c sort_to_b.c \
+SRC =	push_swap.c push_swap_utils.c push_swap_utils2.c parsing.c make_stack.c \
+		instruction.c instruction2.c instruction3.c search_outils.c \
+		sort_to_a.c sort_to_a2.c sort_to_b.c sort_to_b2.c \
 
-SRC_BONUS = checker_bonus.c make_stack.c push_swap_utils.c parsing.c \
-			instruction.c sort_to_a.c sort_to_b.c search_outils.c\
+SRC_BONUS = checker_bonus.c make_stack.c push_swap_utils.c push_swap_utils2.c \
+			parsing.c instruction.c instruction2.c instruction3.c search_outils.c \
+			sort_to_a.c sort_to_a2.c sort_to_b.c sort_to_b2.c \
 
 OBJ = $(SRC:.c=.o)
 

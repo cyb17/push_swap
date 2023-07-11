@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yachen <yachen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bing <bing@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 12:04:13 by yachen            #+#    #+#             */
-/*   Updated: 2023/07/06 18:31:54 by yachen           ###   ########.fr       */
+/*   Updated: 2023/07/11 13:23:48 by bing             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,19 @@ int		find_index(long nbr, t_stack **stack);
 int		find_position_b(t_stack **element, t_stack **stack);
 int		find_position_a(t_stack **element, t_stack **stack);
 void	sort_to_b(t_stack **a, t_stack **b);
+int		case_rr(t_stack **a, t_stack **b, t_stack **element_a);
+int		case_rrr(t_stack **a, t_stack **b, t_stack **element_a);
+int		case_rrarb(t_stack **a, t_stack **b, t_stack **element_a);
+int		case_rarrb(t_stack **a, t_stack **b, t_stack **element_a);
+int		calculator_b(t_stack **a, t_stack **b);
+void	sort_3(t_stack **stack_a);
 void	sort_to_a(t_stack **a, t_stack **b);
+int		casea_rr(t_stack **a, t_stack **b, t_stack **element_b);
+int		casea_rrr(t_stack **a, t_stack **b, t_stack **element_b);
+int		case_rrbra(t_stack **a, t_stack **b, t_stack **element_b);
+int		case_rbrra(t_stack **a, t_stack **b, t_stack **element_b);
+int		calculator_a(t_stack **a, t_stack **b);
+void	sort_a(t_stack **stack_a);
 void	sort(t_stack **stack_a);
 
 #endif
