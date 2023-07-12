@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yachen <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: bing <bing@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 10:16:46 by yachen            #+#    #+#             */
-/*   Updated: 2023/06/13 10:17:42 by yachen           ###   ########.fr       */
+/*   Updated: 2023/07/12 14:55:46 by bing             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_check_str(char *str)
 	return (1);
 }
 
-int	ft_strlen(char *str)
+int	ft_str_len(char *str)
 {
 	int	i;
 
@@ -53,7 +53,7 @@ char	*ft_strjoint(char *s1, char *s2)
 		s1 = (char *)malloc(sizeof(char) * 1);
 		s1[0] = '\0';
 	}
-	s3 = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	s3 = (char *)malloc(sizeof(char) * (ft_str_len(s1) + ft_str_len(s2) + 1));
 	if (!s3)
 		return (NULL);
 	while (s1[i])
@@ -66,13 +66,13 @@ char	*ft_strjoint(char *s1, char *s2)
 	return (s3);
 }
 
-char	*ft_strdup(char *str)
+char	*ft_str_dup(char *str)
 {
 	char	*duplicate;
 	int		i;
 
 	i = 0;
-	duplicate = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1));
+	duplicate = (char *)malloc(sizeof(char) * (ft_str_len(str) + 1));
 	if (!duplicate)
 		return (NULL);
 	while (str[i])

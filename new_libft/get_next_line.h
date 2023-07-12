@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yachen <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: bing <bing@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 10:22:10 by yachen            #+#    #+#             */
-/*   Updated: 2023/06/13 10:22:20 by yachen           ###   ########.fr       */
+/*   Updated: 2023/07/12 14:56:56 by bing             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 
 char	*get_next_line(int fd);
 int		ft_check_str(char *str);
-int		ft_strlen(char *str);
-char	*ft_strdup(char *str);
+int		ft_str_len(char *str);
+char	*ft_str_dup(char *str);
 char	*ft_strjoint(char *s1, char *s2);
 
 #endif

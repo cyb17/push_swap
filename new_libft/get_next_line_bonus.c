@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yachen <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: bing <bing@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 10:14:41 by yachen            #+#    #+#             */
-/*   Updated: 2023/06/13 10:16:20 by yachen           ###   ########.fr       */
+/*   Updated: 2023/07/12 14:56:14 by bing             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*ft_get_line(char	*str)
 	while (str[i] && str[i] != '\n')
 		i++;
 	if (str[i] == '\0')
-		return (ft_strdup(str));
+		return (ft_str_dup(str));
 	line = (char *)malloc(sizeof(char) * (i + 2));
 	if (!line)
 		return (NULL);
@@ -86,7 +86,7 @@ char	*ft_get_restline(char *str)
 		return (NULL);
 	}
 	i++;
-	rest = (char *)malloc(sizeof(char) * ft_strlen(str) - i + 1);
+	rest = (char *)malloc(sizeof(char) * ft_str_len(str) - i + 1);
 	while (str[i])
 		rest[j++] = str[i++];
 	rest[j] = '\0';
