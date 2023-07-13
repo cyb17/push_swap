@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bing <bing@student.42.fr>                  +#+  +:+       +#+         #
+#    By: yachen <yachen@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/20 10:01:12 by yachen            #+#    #+#              #
-#    Updated: 2023/07/11 14:03:19 by bing             ###   ########.fr        #
+#    Updated: 2023/07/13 13:00:40 by yachen           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ SRC =	push_swap.c push_swap_utils.c push_swap_utils2.c parsing.c make_stack.c \
 
 SRC_BONUS = checker_bonus.c make_stack.c push_swap_utils.c push_swap_utils2.c \
 			parsing.c instruction.c instruction2.c instruction3.c search_outils.c \
-			sort_to_a.c sort_to_a2.c sort_to_b.c sort_to_b2.c \
+			sort_to_a.c sort_to_a2.c sort_to_b.c sort_to_b2.c checker_utils_bonus.c \
+			checker_utils2_bonus.c \
 
 OBJ = $(SRC:.c=.o)
 

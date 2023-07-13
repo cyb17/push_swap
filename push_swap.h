@@ -3,27 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bing <bing@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yachen <yachen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 12:04:13 by yachen            #+#    #+#             */
-/*   Updated: 2023/07/11 13:23:48 by bing             ###   ########.fr       */
+/*   Updated: 2023/07/13 11:05:31 by yachen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <limits.h>
-#include <stdio.h>
-#include "./new_libft/libft.h"
-#include "./new_libft/ft_printf.h"
+# include <limits.h>
+# include <stdio.h>
+# include "./new_libft/libft.h"
+# include "./new_libft/ft_printf.h"
 
 typedef struct s_stack
 {
 	int				nbr;
 	struct s_stack	*next;
 }					t_stack;
-int 	stringcmp(char *s1, char *s2);
+int		stringcmp(char *s1, char *s2);
 void	free_tab(char **tab);
 void	free_stack(t_stack **stack);
 int		already_sorted(t_stack *stack_a);

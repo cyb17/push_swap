@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bing <bing@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yachen <yachen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 10:52:26 by yachen            #+#    #+#             */
-/*   Updated: 2023/07/11 11:43:12 by bing             ###   ########.fr       */
+/*   Updated: 2023/07/13 12:18:35 by yachen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	lst_size(t_stack *stack)
 {
-	int	size;
+	int		size;
 	t_stack	*tmp;
 
 	size = 0;

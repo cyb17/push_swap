@@ -6,13 +6,13 @@
 /*   By: yachen <yachen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 12:10:45 by yachen            #+#    #+#             */
-/*   Updated: 2023/07/07 10:49:33 by yachen           ###   ########.fr       */
+/*   Updated: 2023/07/13 11:10:22 by yachen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int stringcmp(char *s1, char *s2)
+int	stringcmp(char *s1, char *s2)
 {
 	while (*s1 || *s2)
 	{
@@ -23,7 +23,6 @@ int stringcmp(char *s1, char *s2)
 	}
 	return (0);
 }
-
 
 static long	ft_atoi_long(const char *str)
 {
@@ -81,8 +80,8 @@ static int	check_argv(char **argv)
 // verifie s'il n'y a pas de doublon
 static int	check_double(char **argv)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (argv[i + 1])
@@ -106,7 +105,7 @@ void	parsing(int argc, char **argv)
 	new_argv = NULL;
 	if (argc == 1)
 		exit(0);
-	if(argc == 2)
+	if (argc == 2)
 	{
 		new_argv = ft_split(argv[1], ' ');
 		if (check_argv(new_argv) == 0 || check_double(new_argv) == 0)

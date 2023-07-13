@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bing <bing@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yachen <yachen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 10:52:26 by yachen            #+#    #+#             */
-/*   Updated: 2023/07/11 11:09:03 by bing             ###   ########.fr       */
+/*   Updated: 2023/07/13 11:12:18 by yachen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	free_tab(char **tab)
 	}
 	free(tab);
 }
+
 void	free_stack(t_stack **stack)
 {
 	t_stack	*tmp;

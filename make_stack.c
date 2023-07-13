@@ -6,7 +6,7 @@
 /*   By: yachen <yachen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 12:22:31 by yachen            #+#    #+#             */
-/*   Updated: 2023/07/06 15:04:07 by yachen           ###   ########.fr       */
+/*   Updated: 2023/07/13 11:11:19 by yachen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_stack	*lst_addnew(int content)
 {
 	t_stack	*new;
-	
+
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
 		return (NULL);
@@ -44,7 +44,7 @@ t_stack	*make_normal(int argc, char **argv)
 {
 	t_stack	*stack;
 	t_stack	*new;
-	int	i;
+	int		i;
 
 	stack = NULL;
 	new = NULL;
@@ -70,7 +70,7 @@ t_stack	*make_string(char **argv)
 	t_stack	*new;
 	char	**string;
 	int		i;
-	
+
 	stack = NULL;
 	new = NULL;
 	string = ft_split(argv[1], ' ');
