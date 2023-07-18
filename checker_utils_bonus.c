@@ -6,7 +6,7 @@
 /*   By: yachen <yachen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 11:13:59 by yachen            #+#    #+#             */
-/*   Updated: 2023/07/13 12:57:56 by yachen           ###   ########.fr       */
+/*   Updated: 2023/07/18 13:12:47 by yachen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,13 @@ void	inst_r(char *str, t_stack **stack_a, t_stack **stack_b)
 	if (str[0] == 'r' && str[1] == 'a')
 		ra(stack_a);
 	else if (str[0] == 'r' && str[1] == 'b')
-		rb(stack_a);
+		rb(stack_b);
 	else if (str[0] == 'r' && str[1] == 'r' && str[2] == '\0')
 		rr(stack_a, stack_b);
 	else if (str[0] == 'r' && str[1] == 'r' && str[2] == 'a')
 		rra(stack_a);
 	else if (str[0] == 'r' && str[1] == 'r' && str[2] == 'b')
-		rrb(stack_a);
+		rrb(stack_b);
 	else if (str[0] == 'r' && str[1] == 'r' && str[2] == 'r')
 		rrr(stack_a, stack_b);
 }

@@ -6,22 +6,28 @@
 /*   By: yachen <yachen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 12:10:45 by yachen            #+#    #+#             */
-/*   Updated: 2023/07/13 11:10:22 by yachen           ###   ########.fr       */
+/*   Updated: 2023/07/18 13:41:29 by yachen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	stringcmp(char *s1, char *s2)
+static int	ft_check(const char *str)
 {
-	while (*s1 || *s2)
+	int	i;
+
+	i = 0;
+	while (str[i] <= 32)
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i])
 	{
-		if (*s1 != *s2)
-			return (1);
-		s1++;
-		s2++;
-	}
-	return (0);
+		if (ft_isdigit(str[i]) == 0)
+			return (0);
+		i++;
+	}	
+	return (1);
 }
 
 static long	ft_atoi_long(const char *str)
@@ -33,6 +39,8 @@ static long	ft_atoi_long(const char *str)
 	i = 0;
 	nb = 0;
 	sign = 1;
+	if (ft_check(str) == 0)
+		return (0);
 	while (str[i] && (str[i] == ' ' || ((str[i] > 8 && str[i] < 14))))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
@@ -103,7 +111,7 @@ void	parsing(int argc, char **argv)
 	char	**new_argv;
 
 	new_argv = NULL;
-	if (argc == 1)
+	if (argc == 1 || argv[1][0] == '\0')
 		exit(0);
 	if (argc == 2)
 	{
